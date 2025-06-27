@@ -7,7 +7,7 @@ function createAlien() {
     }
 
     let container = document.querySelector('.game-container');
-    let containerMarginLeft = window.getComputedStyle(container).marginLeft;
+    let containerMarginLeft = parseInt(window.getComputedStyle(container).marginLeft);
 
     let windowWidth = container.offsetWidth - 200;
     let windowHeight = container.offsetHeight - 200;
@@ -35,13 +35,13 @@ function createAlien() {
     // Debug boy
     // console.log('alienSize ' + alienSize);
     // console.log('alienMirror ' + alienMirror);
-    // console.log('windowWidth ' + windowWidth);
+    console.log('windowWidth ' + windowWidth);
     // console.log('windowHeight ' + windowHeight);
-    // console.log('alienPosX ' + alienPosX);
+    console.log('alienPosX ' + alienPosX);
     // console.log('alienPosY ' + alienPosY);
     // console.log(container.offsetWidth);
     // console.log(container.offsetHeight);
-    console.log(window.getComputedStyle(container).marginLeft)
+    console.log('containerMarginLeft ' + containerMarginLeft)
 }
 
 setInterval(createAlien, 1000);
