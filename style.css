@@ -1,3 +1,12 @@
-/* .alien {
-    width: 100px;
-} */
+.game-container {
+    background-image: url('./assets/bg.png');
+    background-repeat: round;
+    aspect-ratio: 3/2;
+    max-width: 900px;
+    min-width: 500px;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #0e1618;
+}
