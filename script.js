@@ -1,18 +1,31 @@
 
-// Speed control
-let speedControl = 1000;
-
 // Kills control
 let killsCount = document.getElementById('kills-count');
 let kills = 0;
 killsCount.innerText = kills;
 
+// Hearts left
+let heartsCount = 2; // -> 3 hearts
+
+// Blood effects
 let bloodSprite = document.querySelector('.blood-sprite');
+
+
 
 function createAlien() {
 
     if (document.getElementById('createdAlien')) {
         document.getElementById('createdAlien').remove();
+
+        let heartIcon = document.querySelectorAll('.hearts i');
+        heartIcon[heartsCount].classList.remove('fa-solid');
+        heartIcon[heartsCount].classList.add('fa-regular');
+
+        heartsCount -= 1
+        createBloodSprite();
+        if (heartsCount < 0) {
+            console.log('gamebvobver');
+        }
     }
 
     let container = document.querySelector('.game-container');
@@ -52,19 +65,8 @@ function createAlien() {
 
         this.remove();
     }
-
-    
-    // Debug boy
-    // console.log('alienSize ' + alienSize);
-    // console.log('alienMirror ' + alienMirror);
-    // console.log('windowWidth ' + windowWidth);
-    // console.log('windowHeight ' + windowHeight);
-    // console.log('alienPosX ' + alienPosX);
-    // console.log('alienPosY ' + alienPosY);
-    // console.log(container.offsetWidth);
-    // console.log(container.offsetHeight);
-    // console.log('containerMarginLeft ' + containerMarginLeft)
 }
+
 
 
 function createBloodSprite() {
@@ -72,9 +74,10 @@ function createBloodSprite() {
     bloodSprite.style.boxShadow = '1px 1px 300px 100px rgba(255, 0, 0, 0.5) inset';
 }
 
+
+
 setInterval(function() {
     createAlien();
-    createBloodSprite();
-}, speedControl);
+}, 1000);
 
 
