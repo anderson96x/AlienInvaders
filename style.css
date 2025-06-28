@@ -4,17 +4,27 @@ body {
 }
 
 .game-container {
+    display: flex;
+    position: relative;
     background-image: url('./assets/bg.png');
     background-repeat: round;
     aspect-ratio: 3/2;
     max-width: 900px;
     min-width: 500px;
     margin: 0 auto;
-    display: flex;
-    align-items: flex-end;
+}
+
+.blood-sprite {
+    display: none;
+    width: 100%;
+    height: 100%;
+    box-shadow: 1px 1px 300px 100px rgba(255, 0, 0, 0.57) inset;
+    transition: box-shadow 0.5s ease;
 }
 
 .panel-container {
+    position: absolute;
+    bottom: 0px;
     display: flex;
     background-color: #000000a6;
     height: 80px;

@@ -1,11 +1,16 @@
 
+// Speed control
+let speedControl = 1000;
+
 // Kills control
 let killsCount = document.getElementById('kills-count');
 let kills = 0;
 killsCount.innerText = kills;
 
+let bloodSprite = document.querySelector('.blood-sprite');
 
 function createAlien() {
+
     if (document.getElementById('createdAlien')) {
         document.getElementById('createdAlien').remove();
     }
@@ -41,6 +46,9 @@ function createAlien() {
     alien.onclick = function() {
         kills += 1;
         killsCount.innerText = kills;
+        //bloodSprite.style.display = 'none';
+        bloodSprite.style.boxShadow = '1px 1px 300px 100px rgba(255, 0, 0, 0) inset';
+        bloodSprite.style.transition = 'box-shadow 0.5s ease';
 
         this.remove();
     }
@@ -58,8 +66,15 @@ function createAlien() {
     // console.log('containerMarginLeft ' + containerMarginLeft)
 }
 
-setInterval(createAlien, 2000);
 
+function createBloodSprite() {
+    bloodSprite.style.display = 'block';
+    bloodSprite.style.boxShadow = '1px 1px 300px 100px rgba(255, 0, 0, 0.5) inset';
+}
 
+setInterval(function() {
+    createAlien();
+    createBloodSprite();
+}, speedControl);
 
 
