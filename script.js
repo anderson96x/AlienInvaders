@@ -1,5 +1,9 @@
-// TODO
-// Make it go quicker and quicker (smaller interval)
+
+// Kills control
+let killsCount = document.getElementById('kills-count');
+let kills = 0;
+killsCount.innerText = kills;
+
 
 function createAlien() {
     if (document.getElementById('createdAlien')) {
@@ -31,20 +35,30 @@ function createAlien() {
     alien.style.top = alienPosY + 'px';
     alien.style.width = alienSize + 'px';
     alien.style.transform = 'scaleX(' + alienMirror + ')';
+
+
+    // Killing aliens
+    alien.onclick = function() {
+        kills += 1;
+        killsCount.innerText = kills;
+
+        this.remove();
+    }
+
     
     // Debug boy
     // console.log('alienSize ' + alienSize);
     // console.log('alienMirror ' + alienMirror);
-    console.log('windowWidth ' + windowWidth);
+    // console.log('windowWidth ' + windowWidth);
     // console.log('windowHeight ' + windowHeight);
-    console.log('alienPosX ' + alienPosX);
+    // console.log('alienPosX ' + alienPosX);
     // console.log('alienPosY ' + alienPosY);
     // console.log(container.offsetWidth);
     // console.log(container.offsetHeight);
-    console.log('containerMarginLeft ' + containerMarginLeft)
+    // console.log('containerMarginLeft ' + containerMarginLeft)
 }
 
-setInterval(createAlien, 1000);
+setInterval(createAlien, 2000);
 
 
 
