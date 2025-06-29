@@ -24,7 +24,7 @@ function createAlien() {
         heartsCount -= 1
         createBloodSprite();
         if (heartsCount < 0) {
-            window.location.href = ('./game-over.html')
+            //window.location.href = ('./game-over.html')
         }
     }
 
@@ -53,6 +53,7 @@ function createAlien() {
     alien.style.top = alienPosY + 'px';
     alien.style.width = alienSize + 'px';
     alien.style.transform = 'scaleX(' + alienMirror + ')';
+    alien.style.filter = 'drop-shadow(1px 1px 20px red) invert(75%)'; // make aliens scarier
 
 
     // Killing aliens
