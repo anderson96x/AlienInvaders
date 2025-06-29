@@ -24,7 +24,7 @@ function createAlien() {
         heartsCount -= 1
         createBloodSprite();
         if (heartsCount < 0) {
-            console.log('gamebvobver');
+            window.location.href = ('./game-over.html')
         }
     }
 
