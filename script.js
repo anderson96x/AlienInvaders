@@ -10,6 +10,9 @@ let heartsCount = 2; // -> 3 hearts
 // Blood effects
 let bloodSprite = document.querySelector('.blood-sprite');
 
+// Speed control
+let delay = 2000;
+
 
 
 function createAlien() {
@@ -65,10 +68,16 @@ function createAlien() {
         bloodSprite.style.transition = 'box-shadow 0.5s ease';
 
         this.remove();
+
+        if (kills % 5 == 0) {
+            delay -= 500;
+            timer = setTimeout(createAlien, delay);
+            console.log(delay);
+        }
     }
 }
 
-
+let timer
 
 function createBloodSprite() {
     bloodSprite.style.display = 'block';
@@ -76,9 +85,6 @@ function createBloodSprite() {
 }
 
 
-
-setInterval(function() {
-    createAlien();
-}, 3000);
+createAlien();
 
 
