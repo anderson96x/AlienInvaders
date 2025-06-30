@@ -24,7 +24,7 @@ function createAlien() {
         heartsCount -= 1
         createBloodSprite();
         if (heartsCount < 0) {
-            //window.location.href = ('./game-over.html')
+            window.location.href = ('./game-over.html')
         }
     }
 
@@ -79,6 +79,6 @@ function createBloodSprite() {
 
 setInterval(function() {
     createAlien();
-}, 1000);
+}, 3000);
 
 

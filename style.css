@@ -20,6 +20,12 @@ body {
     color: #ff0000;
 }
 
+.start-title {
+    font-size: 5rem;
+    filter: drop-shadow(10px 1px 5px blue);
+    text-shadow: 1px 8px 15px rgb(255,0,0);
+}
+
 .blood-sprite {
     display: none;
     width: 100%;
