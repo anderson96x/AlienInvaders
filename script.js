@@ -5,13 +5,17 @@ let kills = 0;
 killsCount.innerText = kills;
 
 // Hearts left
-let heartsCount = 2; // -> 3 hearts
+let heartsCount = 4; // -> 5 hearts
 
 // Blood effects
 let bloodSprite = document.querySelector('.blood-sprite');
 
 // Speed control
 let delay = 2000;
+let timer;
+
+// Alien element init
+let alien = document.createElement('img');
 
 
 
@@ -37,7 +41,6 @@ function createAlien() {
     let windowWidth = container.offsetWidth - 200;
     let windowHeight = container.offsetHeight - 200;
 
-    let alien = document.createElement('img');
     let alienPick = Math.floor(Math.random() * 8) + 1;
 
     let alienSize = Math.floor(Math.random() * 150) + 50; // 50px to 200px
@@ -57,27 +60,9 @@ function createAlien() {
     alien.style.width = alienSize + 'px';
     alien.style.transform = 'scaleX(' + alienMirror + ')';
     alien.style.filter = 'drop-shadow(1px 1px 20px red) invert(75%)'; // make aliens scarier
-
-
-    // Killing aliens
-    alien.onclick = function() {
-        kills += 1;
-        killsCount.innerText = kills;
-        //bloodSprite.style.display = 'none';
-        bloodSprite.style.boxShadow = '1px 1px 300px 100px rgba(255, 0, 0, 0) inset';
-        bloodSprite.style.transition = 'box-shadow 0.5s ease';
-
-        this.remove();
-
-        if (kills % 5 == 0) {
-            delay -= 500;
-            timer = setTimeout(createAlien, delay);
-            console.log(delay);
-        }
-    }
 }
 
-let timer
+
 
 function createBloodSprite() {
     bloodSprite.style.display = 'block';
@@ -85,6 +70,33 @@ function createBloodSprite() {
 }
 
 
-createAlien();
+
+function runLoop() {
+  createAlien();
+  timer = setTimeout(runLoop, delay);
+}
+
+
+
+// Killing aliens
+alien.onclick = function() {
+    kills += 1;
+    killsCount.innerText = kills;
+    bloodSprite.style.boxShadow = '1px 1px 300px 100px rgba(255, 0, 0, 0) inset';
+    bloodSprite.style.transition = 'box-shadow 0.5s ease';
+    alien.remove();
+
+    // It gets quicker every 5 kills
+    if (kills % 5 == 0) {
+        delay = Math.max(0, delay - 100);
+    }
+}
+
+
+
+// First run and have fun :)
+runLoop();
+
+
 
 
