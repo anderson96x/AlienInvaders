@@ -53,6 +53,7 @@ function createAlien() {
     alien.src = './assets/alien' + alienPick + '.png';
     container.appendChild(alien);
 
+    alien.draggable = false;
     alien.id = 'createdAlien';
     alien.style.position = 'absolute';
     alien.style.left = alienPosX + 'px';
