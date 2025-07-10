@@ -21,6 +21,10 @@ body {
     color: #ff0000;
 }
 
+.game-container h6 {
+    color: gray;
+}
+
 .start-title {
     font-size: 5rem;
     filter: drop-shadow(10px 1px 5px blue);
