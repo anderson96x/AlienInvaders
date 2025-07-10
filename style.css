@@ -25,7 +25,7 @@ body {
     color: #ff0000;
 }
 
-.game-container h6 {
+.game-container h3, h6 {
     color: gray;
 }
 

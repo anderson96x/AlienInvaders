@@ -12,8 +12,14 @@
     <div class="game-container">
         <div class="d-flex align-items-center justify-content-center flex-column w-100">
             <h1>You're dead</h1>
+            <h3>You've killed <span id="kills">0</span> aliens</h3>
             <button type="button" onclick="window.location.href = './play.html'" class="btn btn-secondary mt-3">Try again</button>
         </div>
     </div>
+
+    <script>
+        let howManyKills = localStorage.getItem('howManyKills');
+        document.getElementById('kills').innerHTML = howManyKills;
+    </script>
 </body>
 </html>

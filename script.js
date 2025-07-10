@@ -31,6 +31,7 @@ function createAlien() {
         heartsCount -= 1
         createBloodSprite();
         if (heartsCount < 0) {
+            localStorage.setItem('howManyKills', kills);
             window.location.href = ('./game-over.html')
         }
     }
