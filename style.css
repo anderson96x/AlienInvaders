@@ -27,6 +27,7 @@ body {
 
 .game-container h3, h6 {
     color: gray;
+    font-weight: bold;
 }
 
 .start-title {
