@@ -30,6 +30,17 @@ let alien = document.createElement('img');
 
 function createAlien() {
 
+    // Heroes must be heroes
+    if (kills == 70) {
+        heartsCount = 4; // Reset hearts count after 70 kills
+        let heartIcon = document.querySelectorAll('.hearts i');
+        for (let i = 0; i <= heartsCount; i++) {
+            heartIcon[i].classList.remove('fa-regular');
+            heartIcon[i].classList.add('fa-solid');
+            console.log('wack');
+        }
+    }
+
     if (document.getElementById('createdAlien')) {
         document.getElementById('createdAlien').remove();
 
