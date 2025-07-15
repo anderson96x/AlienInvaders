@@ -5,22 +5,13 @@ let kills = 0;
 killsCount.innerText = kills;
 
 // Best game kills
-let howManyKills = localStorage.getItem('howManyKills');
 let bestGameKillsCount = localStorage.getItem('bestGameKillsCount');
-
-if (howManyKills && kills > howManyKills) {
-    localStorage.setItem('bestGameKillsCount', kills);
-}
-
-if (howManyKills) {
+if (bestGameKillsCount) {
     let bestKillsCount = document.getElementById('best-kills-count');
     bestKillsCount.style.display = "block";
-    //howManyKills = bestGameKillsCount ? bestGameKillsCount : howManyKills;
     bestKillsCount.innerHTML = "Best game: " + bestGameKillsCount + " kills";
-
-    console.log('bestGameKillsCount',bestGameKillsCount);
-    console.log('howManyKills ', howManyKills);
 }
+
 
 // Hearts left
 let heartsCount = 4; // -> 5 hearts
@@ -49,9 +40,12 @@ function createAlien() {
         heartsCount -= 1
         createBloodSprite();
         if (heartsCount < 0) {
-            localStorage.setItem('bestGameKillsCount', kills);
+            let prevBest = localStorage.getItem('bestGameKillsCount');
+            prevBest = prevBest ? prevBest : 0;
+            if (kills > prevBest) {
+                localStorage.setItem('bestGameKillsCount', kills);
+            }
             localStorage.setItem('howManyKills', kills);
-
             window.location.href = ('./game-over.html')
         }
     }
