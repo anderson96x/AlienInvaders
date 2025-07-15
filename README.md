@@ -68,3 +68,4 @@ You either cheated or you're not human 👽
 ## 📬 FEEDBACK
 Found a bug? Got an idea?
 Open an issue or hit me up in the repo.
+
