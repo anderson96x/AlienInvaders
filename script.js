@@ -37,7 +37,6 @@ function createAlien() {
         for (let i = 0; i <= heartsCount; i++) {
             heartIcon[i].classList.remove('fa-regular');
             heartIcon[i].classList.add('fa-solid');
-            console.log('wack');
         }
     }
 
@@ -62,7 +61,6 @@ function createAlien() {
     }
 
     let container = document.querySelector('.game-container');
-    let containerMarginLeft = parseInt(window.getComputedStyle(container).marginLeft);
 
     let windowWidth = container.offsetWidth - 200;
     let windowHeight = container.offsetHeight - 200;
@@ -72,7 +70,7 @@ function createAlien() {
     let alienSize = Math.floor(Math.random() * 150) + 50; // 50px to 200px
     let alienMirror = Math.random() < 0.5 ? -1 : 1; // Since i can't use 0 with ScaleX, If less than 0.5 it gives -1
 
-    let alienPosX = Math.floor(Math.random() * windowWidth) + containerMarginLeft;
+    let alienPosX = Math.floor(Math.random() * windowWidth);
     let alienPosY = Math.floor(Math.random() * windowHeight);
     
 
